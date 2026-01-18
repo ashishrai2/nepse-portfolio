@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NEPSE Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>📊 My NEPSE Portfolio</h1>
+
+<table>
+    <tr>
+        <th>Symbol</th>
+        <th>Shares</th>
+        <th>Price (Rs)</th>
+        <th>Total Value</th>
+    </tr>
+
+    {% for stock in portfolio %}
+    <tr>
+        <td>{{ stock.symbol }}</td>
+        <td>{{ stock.shares }}</td>
+        <td>{{ stock.price }}</td>
+        <td>{{ stock.shares * stock.price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
